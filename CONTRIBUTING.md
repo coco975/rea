@@ -51,6 +51,34 @@ When adding or changing an admission ceiling, budget, or deadline, follow
 for ownership, operation snapshots, provider integration, and the steps for
 adding a runtime setting.
 
+## Repository-local specialists
+
+The optional [REA specialists skill](.agents/skills/rea-specialists/SKILL.md)
+provides six focused perspectives in a source checkout. In a skill-aware agent,
+use `$rea-specialists` followed by a selector and your question:
+
+| Specialist                             | Example request                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------------- |
+| Codebase Onboarding Engineer           | `$rea-specialists use onboarding to trace a CLI request into shared analysis` |
+| Codebase Archaeologist                 | `$rea-specialists use archaeology to explain this representation's history`   |
+| Code Reviewer                          | `$rea-specialists use code-review to review the current diff`                 |
+| Security / defensive review specialist | `$rea-specialists use defensive-review to inspect this input boundary`        |
+| Multi-Agent Systems Architect          | `$rea-specialists use multi-agent-design to plan this investigation`          |
+| REA Evidence Analyst                   | `$rea-specialists use evidence-analysis to assess these REA results`          |
+
+If the skill is not listed in your current session, ask the agent to read
+`.agents/skills/rea-specialists/SKILL.md` and the selected role guide directly.
+No separate interface, Agency Agents clone, installer or Codex configuration
+change is required. The roles guide the current agent; they do not automatically
+spawn workers or add CLI commands, MCP prompts or analysis capabilities.
+
+The guides are original REA-specific instructions inspired by the linked Agency
+Agents roles. REA retains ownership of analysis and Evidence validation. This
+repository-local skill is not added to the published `reverse-engineer-anything`
+bundle or setup. To remove it, delete `.agents/skills/rea-specialists/`, its
+[conformance test](tests/conformance/repositorySpecialists.test.ts) and this
+section; no runtime registration needs undoing.
+
 ## Reporting issues
 
 Use the issue form that fits the report and keep it concise. For bugs, include
